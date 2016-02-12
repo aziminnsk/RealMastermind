@@ -21,4 +21,18 @@ public class CodePegs {
         assert index < NUM_PEGS;
         return (Peg) pegs.getValue(index); // Unsafe downcast
     }
+
+    public final KeyPegs compare(final CodePegs that) {
+        assert that != null;
+        int numWhitePegs = 0;
+        int numBlackPegs = 0;
+        for (int i = 0; i < NUM_PEGS; i++) {
+            if (getPeg(i) == that.getPeg(i)) {
+                numBlackPegs++;
+            } else if (pegs.contains(that.getPeg(i))) {
+                numWhitePegs++;
+            }
+        }
+        return new KeyPegs(numWhitePegs, numBlackPegs);
+    }
 }

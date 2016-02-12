@@ -28,7 +28,6 @@ public class Board {
 
     private KeyPegs getFeedback(final CodePegs code) {
         assert code != null;
-        // TODO: Implement this
-        return null;
+        return secretCode.compare(code);
     }
 }
